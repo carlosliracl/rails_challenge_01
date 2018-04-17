@@ -1,0 +1,36 @@
+<%= link_to "Add product", new_product_path, class: "btn btn-default btn-lg mb-1" %>
+
+<% if @products.empty? %>
+    <h1 id="no-products">No products created</h1>
+<% else %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <% @products.each do |product| %>
+            <tr>
+                <td>
+                    <%=link_to product.sku, product_path(product) %>
+                </td>
+                <td>
+                    <%= product.name %>
+                </td>
+                <td>
+                    <%= product.description %>
+                </td>
+                <td>
+                    <%= product.quantity %>
+                </td>
+                <td>
+                    <%= product.price %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

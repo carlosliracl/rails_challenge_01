@@ -1,0 +1,56 @@
+<% if @product.errors.any? %>
+    <div class="alert alert-warning">
+        <ul>
+            <% @product.errors.full_messages.each do | message | %>
+                <li><%= message   %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_for( @product, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+        <div class="control-label col-md-1">
+            <%= f.label :sku %>
+        </div>
+        <div class="col-md-11">
+            <%= f.text_field :sku, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label col-md-1">
+            <%= f.label :name %>
+        </div>
+        <div class="col-md-11">
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label col-md-1">
+            <%= f.label :description %>
+        </div>
+        <div class="col-md-11">
+            <%= f.text_field :description, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label col-md-1">
+            <%= f.label :quantity %>
+        </div>
+        <div class="col-md-11">
+            <%= f.number_field :quantity, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label col-md-1">
+            <%= f.label :price %>
+        </div>
+        <div class="col-md-11">
+            <%= f.text_field :price, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-1 col-md-11">
+            <%= f.submit class: "btn btn-primary btn-lg pull-right" %>
+        </div>
+    </div>
+<% end %>

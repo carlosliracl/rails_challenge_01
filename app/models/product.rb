@@ -1,6 +1,6 @@
 class Product
   include Mongoid::Document
-  include FormattedCurrency
+  include Mongoid::Timestamps
 
   field :sku, type: String
   field :name, type: String
